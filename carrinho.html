@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>GameVerse - Carrinho</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* Adicione estilos conforme necessário */
+        #carrinho {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .produto-no-carrinho {
+            margin-bottom: 10px;
+            border-bottom: 2px solid #FF5527; /* Faixa laranja entre os produtos */
+            padding-bottom: 10px; /* Espaçamento inferior para melhorar a aparência */
+        }
+
+        .produto-no-carrinho img {
+            max-width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .produto-no-carrinho p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="nome-loja">GameVerse - Carrinho</h1>
+        <a href="index.html"><img src="Design_sem_nome__2_-removebg-preview.png" alt="voltar"></a>
+    </header>
+ 
+    <div id="carrinho">
+        <h2>Carrinho de Compras:</h2>
+    </div>
+ 
+    <script>
+        // O seu código JavaScript permanece inalterado
+        const carrinho = [
+            // ... (seus produtos adicionados ao carrinho)
+        ];
+
+        function inicializarCarrinho() {
+            var containerCarrinho = document.getElementById('carrinho');
+            containerCarrinho.innerHTML = '<h2>Carrinho de Compras:</h2>';
+
+            carrinho.map((produto) => {
+                containerCarrinho.innerHTML += `
+                    <div class="produto-no-carrinho">
+                        <img src="${produto.img}" />
+                        <p>${produto.nome} - Preço: R$ ${produto.preco.toFixed(2)}</p>
+                    </div>
+                `;
+            });
+
+            // Adicione o total ao carrinho
+            containerCarrinho.innerHTML += `<p>Total: R$ ${calcularTotal()}</p>`;
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            carrinho.forEach((item) => {
+                total += item.preco;
+            });
+            return total.toFixed(2);
+        }
+
+        inicializarCarrinho();
+    </script>
+</body>
+</html>

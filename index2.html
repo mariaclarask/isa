@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>GameVerse</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <h1 id="nome-loja">GameVerse</h1>
+        <a href="carrinho.html"><img src="" alt="carrinho"></a>
+    </header>
+ 
+    <div id="produtos">
+    </div>
+ 
+    <script>
+        const items = [
+        {
+                id: 0,
+                nome: 'Rust',
+                img: 'rust.png',
+                quantidade: 0,
+                preco: 184.95
+            },
+            {
+                id: 1,
+                nome: 'BlackDesert',
+                img: 'blackdesert.png',
+                quantidade: 0,
+                preco: 159.90
+            },
+            {
+                id: 2,
+                nome: 'Mortal Kombat 11',
+                img: 'mortalkombat.jpg',
+                quantidade: 0,
+                preco: 279.00
+            },
+            {
+                id: 3,
+                nome: 'Brawlhalla',
+                img: 'brawlhalla.png',
+                quantidade: 0,
+                preco: 0.00,
+            },
+            {
+                id: 4,
+                nome: 'FIFA 23',
+                img: 'fifa23.jpg',
+                quantidade: 0,
+                preco: 358.90,
+            },
+            {
+                id: 5,
+                nome: 'Fortnite',
+                img: 'FORTNITE.jpg',
+                quantidade: 0,
+                preco: 0.00,
+            },
+            {
+                id: 6,
+                nome: 'Cuphead',
+                img: 'Cuphead.jpg',
+                quantidade: 0,
+                preco: 36.99
+            },
+            {
+                id: 7,
+                nome: 'Roblox',
+                img: 'roblox.jpg',
+                quantidade: 0,
+                preco: 0.00
+            },
+            {
+                id: 8,
+                nome: 'Five Nights at Freddy',
+                img: 'Five Nights at Freddys.jpg',
+                quantidade: 0,
+                preco: 29.95
+            },
+            {
+                id: 9,
+                nome: 'SONIC SUPERSTARS',
+                img: 'SONIC SUPERSTARS.jpg',
+                quantidade: 0,
+                preco: 289.00,
+            },
+            {
+                id: 10,
+                nome: 'Marvels Spider-Man',
+                img: 'spider man.png',
+                quantidade: 0,
+
+                preco: 6.99
+            },
+            {
+                id: 11,
+                nome: 'Forza Horizon 5',
+                img: 'forza.png',
+                quantidade: 0,
+                preco: 249.00
+            },
+            {
+                id: 12,
+                nome: 'World of Warcraft',
+                img: '250px-WoW_Box_Art1.jpg',
+                quantidade: 0,
+                preco: 184.95
+             } ,
+            {
+                id: 13,
+                nome: 'Final Fantasy XIV',
+                img: 'imagem (4).png',
+                quantidade: 0,
+                preco: 159.90
+            },
+            {
+                id: 14,
+                nome: 'Mortal Kombat 11',
+                img: 'mortalkombat.jpg',
+                quantidade: 0,
+                preco: 279.00
+            },
+            {
+                id: 15,
+                nome: 'Brawlhalla',
+                img: 'brawlhalla.png',
+                quantidade: 0,
+                preco: 0.00,
+            },
+            {
+                id: 16,
+                nome: 'FIFA 23',
+                img: 'fifa23.jpg',
+                quantidade: 0,
+                preco: 358.90,
+            },
+            {
+                id: 17,
+                nome: 'Fortnite',
+                img: 'FORTNITE.jpg',
+                quantidade: 0,
+                preco: 0.00,
+            },
+            {
+                id: 18,
+                nome: 'Cuphead',
+                img: 'Cuphead.jpg',
+                quantidade: 0,
+                preco: 36.99
+            },
+            {
+                id: 19,
+                nome: 'Roblox',
+                img: 'roblox.jpg',
+                quantidade: 0,
+                preco: 0.00
+            },
+            {
+                id: 20,
+                nome: 'Five Nights at Freddy',
+                img: 'Five Nights at Freddys.jpg',
+                quantidade: 0,
+                preco: 29.95
+            },
+            {
+                id: 21,
+                nome: 'SONIC SUPERSTARS',
+                img: 'SONIC SUPERSTARS.jpg',
+                quantidade: 0,
+                preco: 289.00,
+            },
+            {
+                id: 22,
+                nome: 'Marvel’s Spider-Man',
+                img: 'spider man.png',
+                quantidade: 0,
+                preco: 6.99
+            },
+            {
+                id: 23,
+                nome: 'Forza Horizon 5',
+                img: 'forza.png',
+                quantidade: 0,
+                preco: 249.00
+            },
+            {
+                id: 24,
+                nome: 'Five Nights at Freddy',
+                img: 'Five Nights at Freddys.jpg',
+                quantidade: 0,
+                preco: 29.95
+
+            },
+            {
+                id: 25,
+                nome: 'SONIC SUPERSTARS',
+                img: 'SONIC SUPERSTARS.jpg',
+                quantidade: 0,
+                preco: 289.00,
+            },
+            {
+                id: 26,
+                nome: 'Marvel’s Spider-Man',
+                img: 'spider man.png',
+                quantidade: 0,
+                preco: 6.99
+            },
+            {
+                id: 27,
+                nome: 'Forza Horizon 5',
+                img: 'forza.png',
+                quantidade: 0,
+                preco: 249.00
+            },
+        ];
+
+const carrinho = [];
+
+function inicializarLoja() {
+    var containerProdutos = document.getElementById('produtos');
+    containerProdutos.innerHTML = ''; // Limpa o conteúdo anterior
+
+    items.map((val) => {
+        containerProdutos.innerHTML += `
+            <div class="produto-single">
+                ${criarLinkDescricaoProduto(val.id, `<img src="${val.img}" />`)}
+                <p>${val.nome} - Preço: R$ ${val.preco.toFixed(2)}</p>
+                <p>${val.descricao}</p>
+                <div class="avaliacao" data-id="${val.id}" onclick="clicarEstrela(event)">
+                    <span>Avaliação: </span>
+                    ${gerarEstrelas(val.avaliacao)}
+                </div>
+                <button onclick="adicionarAoCarrinho(${val.id})">Adicionar ao carrinho</button>
+            </div>
+        `;
+    });
+}
+
+function criarLinkDescricaoProduto(id, conteudo) {
+    return `<a href="descricao_produto_${id}.html">${conteudo}</a>`;
+}
+
+function gerarEstrelas(avaliacao) {
+    let estrelasHtml = '';
+    for (let i = 0; i < 5; i++) {
+        if (i < avaliacao) {
+            estrelasHtml += `<i class="bx bxs-star" data-estrela="${i + 1}"></i>`;
+        } else {
+            estrelasHtml += `<i class="bx bx-star" data-estrela="${i + 1}"></i>`;
+        }
+    }
+    return estrelasHtml;
+}
+
+function clicarEstrela(event) {
+    const idProduto = event.currentTarget.getAttribute("data-id");
+    const estrelaClicada = event.target.getAttribute("data-estrela");
+
+    if (idProduto && estrelaClicada) {
+        items[idProduto].avaliacao = estrelaClicada;
+        inicializarLoja(); // Atualiza a exibição após a avaliação ser alterada
+    }
+}
+
+function adicionarAoCarrinho(idProduto) {
+    carrinho.push(items[idProduto]);
+    console.log("Produto adicionado ao carrinho:", items[idProduto]);
+    atualizarCarrinho(); // Chama a função para atualizar o carrinho
+}
+
+function atualizarCarrinho() {
+    // Atualiza a exibição dos produtos no carrinho em carrinho.html
+    var containerCarrinho = document.getElementById('carrinho');
+    containerCarrinho.innerHTML = '<h2>Carrinho de Compras:</h2>';
+
+    carrinho.map((produto) => {
+        containerCarrinho.innerHTML += `
+            <div class="produto-no-carrinho">
+                <img src="${produto.img}" />
+                <p>${produto.nome} - Preço: R$ ${produto.preco.toFixed(2)}</p>
+            </div>
+        `;
+    });
+
+    // Adicione o total ao carrinho
+    containerCarrinho.innerHTML += `<p>Total: R$ ${calcularTotal()}</p>`;
+}
+
+function calcularTotal() {
+    let total = 0;
+    carrinho.forEach((item) => {
+        total += item.preco;
+    });
+    return total.toFixed(2);
+}
+
+inicializarLoja();
+</script>
+</body>
+</html>

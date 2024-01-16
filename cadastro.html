@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        body {
+            background-color: #FF5527;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 16px;
+            
+        }
+       
+        form {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 70%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+ 
+        form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+ 
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #2D88A5;
+        }
+ 
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            outline: none;
+        }
+ 
+        form input[type="submit"] {
+            background-color: #2D88A5;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+ 
+        form input[type="submit"]:hover {
+            background-color: #2D88A5;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formCadastro">
+        <h3>Cadastro</h3>
+        <input id="username" type="text" name="username" placeholder="Nome de usuário..." />
+        <input id="email" type="text" name="email" placeholder="Seu e-mail..." />
+        <div id="emailErrorMessage" class="error-message"></div>
+        <input id="password" type="password" name="senha" placeholder="Sua senha..." />
+        <div id="passwordErrorMessage" class="error-message"></div>
+        <input type="submit" name="acao" value="Cadastrar" />
+    </form>
+    
+    <script>
+        document.getElementById('formCadastro').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var usernameValue = document.getElementById('username').value;
+            var emailValue = document.getElementById('email').value;
+            var passwordValue = document.getElementById('password').value;
+
+            var emailErrorMessageElement = document.getElementById('emailErrorMessage');
+            var passwordErrorMessageElement = document.getElementById('passwordErrorMessage');
+
+            if (emailValue.trim() === '' || !emailValue.includes('@')) {
+                emailErrorMessageElement.textContent = 'Preencha um e-mail válido.';
+                emailErrorMessageElement.style.display = 'block';
+            } else {
+                emailErrorMessageElement.textContent = '';
+                emailErrorMessageElement.style.display = 'none';
+            }
+
+            if (passwordValue.trim() === '' || passwordValue.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/.test(passwordValue)) {
+                passwordErrorMessageElement.textContent = 'A senha deve ter pelo menos 8 caracteres, incluindo um caracter especial.';
+                passwordErrorMessageElement.style.display = 'block';
+            } else {
+                passwordErrorMessageElement.textContent = '';
+                passwordErrorMessageElement.style.display = 'none';
+
+                // Redirecionar para a página "index.html"
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entrar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        body {
+            background-color: #FF5527;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 16px;
+        }
+       
+        form {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 70%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+ 
+        form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+ 
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #2D88A5;
+        }
+ 
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            outline: none;
+        }
+ 
+        form input[type="submit"] {
+            background-color: #2D88A5;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+ 
+        form input[type="submit"]:hover {
+            background-color: #2D88A5;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center; /* Centraliza o texto */
+            margin-right: 10px; /* Adiciona margem à direita */
+        }
+
+        /* Estiliza o link da palavra "Cadastrar" */
+        p a.cadastrar-link {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="formContato">
+        <h3>GameVerse</h3>
+        <input id="email" type="text" name="email" placeholder="Seu e-mail..." />
+        <div id="emailErrorMessage" class="error-message"></div>
+        <input id="password" type="password" name="senha" placeholder="Sua senha..." />
+        <div id="passwordErrorMessage" class="error-message"></div>
+        <input id="submitButton" type="submit" name="acao" value="Enviar" />
+        <p>Não possui uma conta? <a href="cadastro.html">Faça seu cadastro</a></p>
+    </form>
+ 
+    <script>
+        document.getElementById('formContato').addEventListener('submit', function(event) {
+            // Impedir o envio do formulário
+            event.preventDefault();
+
+            // Obter os valores dos campos
+            var emailValue = document.getElementById('email').value;
+            var passwordValue = document.getElementById('password').value;
+
+            // Obter os elementos da mensagem de erro
+            var emailErrorMessageElement = document.getElementById('emailErrorMessage');
+            var passwordErrorMessageElement = document.getElementById('passwordErrorMessage');
+
+            // Verificar se o email está vazio ou não contém "@"
+            if (emailValue.trim() === '' || !emailValue.includes('@')) {
+                emailErrorMessageElement.textContent = 'Preencha um e-mail ';
+                emailErrorMessageElement.style.display = 'block';
+            } else {
+                // Resetar a mensagem de erro
+                emailErrorMessageElement.textContent = '';
+                emailErrorMessageElement.style.display = 'none';
+            }
+
+            // Verificar se a senha está vazia
+            if (passwordValue.trim() === '') {
+                passwordErrorMessageElement.textContent = 'Preencha a senha.';
+                passwordErrorMessageElement.style.display = 'block';
+            } else {
+                // Resetar a mensagem de erro e redirecionar
+                passwordErrorMessageElement.textContent = '';
+                passwordErrorMessageElement.style.display = 'none';
+                window.location.href = 'index2.html';
+            }
+        });
+    </script>
+</body>
+</html>

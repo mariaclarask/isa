@@ -1,0 +1,84 @@
+header {
+    background-color: #FF5527;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+ 
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+#carrinho {
+    padding: 10px;
+    margin-top: 20px;
+   
+ 
+border: none; /* Remover a borda */
+}
+ 
+#carrinho a {
+    text-decoration: none; /* Remover a formatação de link */
+   
+   
+color: inherit; /* Utilizar a cor padrão do texto */
+}
+ 
+#nome-loja {
+    font-size: 24px;
+    font-weight: bold;
+}
+ 
+#produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Alterado para distribuir os produtos */
+    align-items: flex-start; /* Alinhamento vertical inicial */
+    padding: 20px; /* Adicionado espaço interno para visualização */
+}
+ 
+.produto-single {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+}
+ 
+.produto-single img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Adicionado espaço abaixo da imagem */
+}
+ 
+#carrinho {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+.produto-single {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.produto-single img {
+    max-width: 100%;
+    height: auto;
+}
+
+.avaliacao {
+    margin-top: 5px;
+}
+
+.avaliacao i {
+    color: #FFD700; /* Cor amarela para as estrelas */
+    cursor: pointer; /* Adiciona cursor apontando para indicar que é clicável */
+}
+#carrinho {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
